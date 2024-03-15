@@ -34,7 +34,11 @@ class KeyboardController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $keyboard = Keyboard::find($id);
+        if (is_null($keyboard)) {
+            return response()->json(["message" => "Keyboard not found with id: $id"], 404);
+        }
+        return $keyboard;
     }
 
     /**

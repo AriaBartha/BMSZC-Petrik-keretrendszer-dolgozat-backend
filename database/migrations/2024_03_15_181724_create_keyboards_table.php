@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name", 100)->unique();
             $table->string("type", 30);
             $table->string("layout", 30);
-            $table->integer("width");
+            $table->float("width");
             $table->enum("wireless", ["yes","no"]);
             $table->timestamps("");
         });

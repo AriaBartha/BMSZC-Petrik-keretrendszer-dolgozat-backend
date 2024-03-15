@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreKeyboardRequest;
+use App\Http\Requests\UpdateKeyboardRequest;
 use App\Models\Keyboard;
 use Illuminate\Http\Request;
 
@@ -44,9 +45,15 @@ class KeyboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateKeyboardRequest $request, string $id)
     {
-        //
+        $keyboard = Keyboard::find($id);
+        if (is_null($keyboard)) {
+            return response()->json(["message" => "Keyboard not found with id: $id"], 404);
+        }
+        $keyboard->fill($request->all());
+        $keyboard->save();
+        return $keyboard;
     }
 
     /**

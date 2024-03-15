@@ -11,7 +11,7 @@ class UpdateKeyboardRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateKeyboardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name" => "string|max:100",
+            "type" => "string|max:30",
+            "layout" => "string|max:30",
+            "width" => "numeric",
+            "wireless" => "in:yes,no"
         ];
     }
 }

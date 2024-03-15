@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Keyboard;
 use Illuminate\Http\Request;
 
 class KeyboardController extends Controller
@@ -12,7 +13,8 @@ class KeyboardController extends Controller
      */
     public function index()
     {
-        //
+        $keyboards = Keyboard::all();
+        return response()->json($keyboards, 200);
     }
 
     /**

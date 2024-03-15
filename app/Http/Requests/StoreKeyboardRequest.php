@@ -11,7 +11,7 @@ class StoreKeyboardRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreKeyboardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name" => "required|string|max:100|unique:keyboards,name",
+            "type" => "required|string|max:30",
+            "layout" => "required|string|max:30",
+            "width" => "required|numeric",
+            "wireless" => "required|in:yes,no",
         ];
     }
 }

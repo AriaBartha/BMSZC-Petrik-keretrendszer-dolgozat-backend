@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Keyboard extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "name",
+        "type",
+        "layout",
+        "width",
+        "wireless"
+    ];
 }

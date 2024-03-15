@@ -26,7 +26,7 @@ class StoreKeyboardRequest extends FormRequest
             "type" => "required|string|max:30",
             "layout" => "required|string|max:30",
             "width" => "required|numeric",
-            "wireless" => "required|in:yes,no",
+            "wireless" => "required|in:yes,no"
         ];
     }
 }

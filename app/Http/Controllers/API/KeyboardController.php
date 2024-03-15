@@ -23,7 +23,10 @@ class KeyboardController extends Controller
      */
     public function store(StoreKeyboardRequest $request)
     {
-        //
+        $keyboard = new Keyboard();
+        $keyboard->fill($request->all());
+        $keyboard->save();
+        return response()->json($keyboard, 201);
     }
 
     /**
